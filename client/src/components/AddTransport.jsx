@@ -16,6 +16,7 @@ const AddTransport = (props) => {
             .then(res => {
                 console.log(res.data, "res.data")
                 console.log()
+                res.data.pickupTime = ""
                 setTransport(res.data);
             })
             .catch((err) => {
@@ -40,12 +41,13 @@ const AddTransport = (props) => {
             .catch(err => {
                 console.log(err);
                 console.log(err, "errors")
-                // const errArray = [];
-                // for (const key of Object.keys(err.response.data.errors)) {
-                //     errArray.push(err.response.data.errors[key].message)
-                // }
-                // setErrors(errArray);
-                setErrors(err.response.data.error.errors);
+                // setErrors(err.response.data.error.errors)
+                const errArray = [];
+                for (const key of Object.keys(err.response.data.errors)) {
+                    errArray.push(err.response.data.errors[key].message)
+                }
+                setErrors(errArray);
+                // setErrors(err.response.data.error.errors);
             })
     }
 
@@ -57,7 +59,7 @@ const AddTransport = (props) => {
             <p>{transport.refId}</p>
             <p>{transport.description}</p>
             <p>{transport.currentLocation}</p>
-            <p>{transport.deadline.split("T")[0]}</p>
+            <p>{transport.date}</p>
             <p>{transport.rescue}</p>
             <p>{transport.dropoffLocation}</p>
             {/* <p>Rescue representative {login username}</p> */}
@@ -73,7 +75,8 @@ const AddTransport = (props) => {
                 <div >
                     <label>Pick-up date</label>
                     <br />
-                    <input type="text" value={transport.pickupDate.split("T")[0]} name="pickupDate" onChange={changeHandler} />
+                    <input type="text" value={transport.deadline} name="pickupDate" onChange={changeHandler} />
+
                 </div>
                 <div >
                     <label>Pick-up time</label>

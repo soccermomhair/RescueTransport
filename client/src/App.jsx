@@ -11,6 +11,7 @@ import EditPet from './components/EditPet';
 import EditPetTwo from './components/EditPetTwo';
 import NotFound from './components/NotFound';
 import RegLog from './components/RegLog';
+// import "tailwindcss/tailwind.css";
 
 function App() {
   const [transport, setTransport] = useState([])

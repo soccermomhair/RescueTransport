@@ -37,7 +37,7 @@ const AddPet = (props) => {
         }
         else {
 
-            axios.post('http://localhost:8000/api/transports', transport)
+            axios.post('http://localhost:8000/api/transports', transport, { withCredentials: true })
                 .then(res => {
                     console.log(res.data);
                     navigate('/pets');

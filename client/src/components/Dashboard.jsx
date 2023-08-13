@@ -42,8 +42,8 @@ const Dashboard = (props) => {
 
 
     return (
-        <div>
-            <p>List of pets requiring rescue or transport</p>
+        <div className='h-screen flex justify-center items-center'>
+            <p className="text-yellow-400">List of pets requiring rescue or transport</p>
             <button onClick={logout}>Log Out</button>
             <button><Link to="/pets/new">Add a pet</Link></button>
             {

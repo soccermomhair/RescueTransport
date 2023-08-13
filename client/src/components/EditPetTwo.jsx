@@ -107,7 +107,7 @@ const EditPetTwo = (props) => {
 
     return (
         <div>
-            <p>Edit a pet:</p>
+            <p className="text-red-600">Edit a pet:</p>
             <Link to='/pets'>Home</Link>
             <form onSubmit={updatePet}>
                 <div>
@@ -141,7 +141,8 @@ const EditPetTwo = (props) => {
                 <div >
                     <label>Deadline</label>
                     <br />
-                    <input type="date" value={transport.deadline.split("T")[0]} name="deadline" onChange={changeHandler} />
+                    <input type="date" value={transport.date} name="deadline" onChange={changeHandler} />
+                    {/* transport.deadline.split("T")[0] */}
                     {/* .split("T")[0].substring(0, 10) */}
                 </div>
                 <button>Submit</button>
