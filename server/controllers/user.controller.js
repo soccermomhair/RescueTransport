@@ -33,9 +33,15 @@ module.exports = {
                 const passwordMatch = await bcrypt.compare(req.body.password, user.password);
                 if (passwordMatch) {
                     const userToken = jwt.sign({ _id: user.id, email: user.email }, secret, { expiresIn: "1d" });
-                    res.cookie("usertoken", userToken, {
-                        httpOnly: true
+                    console.log(userToken, "user token")
+
+
+                    return res.cookie("usertoken", userToken, {
+                        httpOnly: true,
+                        secure: process.env.NODE_ENV === "production"
                     }).json({ message: "success", user: user });
+
+                    // res.status(201).cookie("usertoken", userToken,).json({ message: "success", user: user })
                 }
                 else {
                     res.status(400).json({ message: "Invalid login attempt" });
@@ -55,3 +61,7 @@ module.exports = {
     }
 }
 
+// const userToken = jwt.sign({ _id: user.id, email: user.email }, secret, { expiresIn: "1d" });
+//                     res.cookie("usertoken", userToken, {
+//                         httpOnly: true
+//                     }).json({ message: "success", user: user });

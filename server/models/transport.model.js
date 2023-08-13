@@ -39,7 +39,8 @@ const TransportSchema = new mongoose.Schema({
         type: String
     },
     pickupTime: {
-        type: String
+        type: String,
+        minLength: [3, "You must enter an estimated pickup time"]
     }
     // picture: {
     //     type: String
