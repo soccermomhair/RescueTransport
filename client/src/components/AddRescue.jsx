@@ -51,40 +51,46 @@ const AddRescue = (props) => {
 
     return (
         <div>
-            <p>Rescue this pet:</p>
-            <Link to='/pets'>Home</Link>
-            <p>{transport.name}</p>
-            <p>{transport.refId}</p>
-            <p>{transport.description}</p>
-            <p>{transport.currentLocation}</p>
-            <p>{transport.deadline}</p>
-            {/* <p>Rescue representative {login username}</p> */}
-            <form onSubmit={onSubmitHandler}>
-                <div>
-                    {errors.map((err, idx) => {
-                        return (
-                            <p key={idx}>{err}</p>
-                        )
-                    })}
+            <div className='text-left mx-10'>
+                <p className="text-green-700 text-2xl my-1 ">Rescue this pet:</p>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><Link to='/pets'>Home</Link></button>
+            </div>
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="w-full max-w-sm">
+                    <p className='font-bold'>Name: <span className='font-normal'>{transport.name}</span> </p>
+                    <p className='font-bold'>ID: <span className='font-normal'>{transport.refId}</span></p>
+                    <p className='font-bold'>Description: <span className='font-normal'>{transport.description}</span></p>
+                    <p className='font-bold'>Current location: <span className='font-normal'>{transport.currentLocation}</span></p>
+                    <p className='font-bold'>Deadline: <span className='font-normal'>{transport.deadline}</span></p>
+                    {/* <p>Rescue representative {login username}</p> */}
+                    <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' onSubmit={onSubmitHandler}>
+                        <div>
+                            {errors.map((err, idx) => {
+                                return (
+                                    <p key={idx}>{err}</p>
+                                )
+                            })}
+                        </div>
+
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Rescue</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.rescue} name="rescue" onChange={changeHandler} />
+                        </div>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Drop-off Location</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.dropoffLocation} name="dropoffLocation" onChange={changeHandler} />
+                        </div>
+
+
+
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                        {/* <input type='submit' /> */}
+
+                    </form>
                 </div>
-
-                <div >
-                    <label>Rescue</label>
-                    <br />
-                    <input type="text" value={transport.rescue} name="rescue" onChange={changeHandler} />
-                </div>
-                <div >
-                    <label>Drop-off Location</label>
-                    <br />
-                    <input type="text" value={transport.dropoffLocation} name="dropoffLocation" onChange={changeHandler} />
-                </div>
-
-
-
-                <button>Submit</button>
-                {/* <input type='submit' /> */}
-
-            </form>
+            </div>
         </div>
     )
 }

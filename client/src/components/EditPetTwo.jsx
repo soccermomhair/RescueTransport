@@ -107,49 +107,59 @@ const EditPetTwo = (props) => {
 
     return (
         <div>
-            <p className="text-red-600">Edit a pet:</p>
-            <Link to='/pets'>Home</Link>
-            <form onSubmit={updatePet}>
-                <div>
-                    {errors.map((err, idx) => {
-                        return (
-                            <p key={idx}>{err}</p>
-                        )
-                    })}
-                </div>
+            <div className='text-left mx-10'>
+                <p className="text-green-700 text-2xl my-5 ">Edit a pet:</p>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><Link to='/pets'>Home</Link></button>
+            </div>
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="w-full max-w-sm">
 
-                <div >
-                    <label>Name</label>
-                    <br />
-                    <input type="text" value={transport.name} name="name" onChange={changeHandler} />
-                </div>
-                <div >
-                    <label>ID</label>
-                    <br />
-                    <input type="text" value={transport.refId} name="refId" onChange={changeHandler} />
-                </div>
-                <div >
-                    <label>Description</label>
-                    <br />
-                    <input type="text" value={transport.description} name="description" onChange={changeHandler} />
-                </div>
-                <div >
-                    <label>Current Location</label>
-                    <br />
-                    <input type="text" value={transport.currentLocation} name="currentLocation" onChange={changeHandler} />
-                </div>
-                <div >
-                    <label>Deadline</label>
-                    <br />
-                    <input type="date" value={transport.date} name="deadline" onChange={changeHandler} />
-                    {/* transport.deadline.split("T")[0] */}
-                    {/* .split("T")[0].substring(0, 10) */}
-                </div>
-                <button>Submit</button>
-                {/* <input type='submit' /> */}
+                    <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' onSubmit={updatePet}>
+                        <div className=''>
+                            {errors.map((err, idx) => {
+                                return (
+                                    <p mt-1 text-sm leading-6 text-gray-600key={idx}>{err}</p>
+                                )
+                            })}
+                        </div>
 
-            </form>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Name</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.name} name="name" onChange={changeHandler} />
+                        </div>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">ID</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.refId} name="refId" onChange={changeHandler} />
+                        </div>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Description</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.description} name="description" onChange={changeHandler} />
+                        </div>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Current Location</label>
+                            <br />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.currentLocation} name="currentLocation" onChange={changeHandler} />
+                        </div>
+                        <div className='mb-7'>
+                            <label className="block text-gray-700 text-sm font-bold ">Deadline</label>
+                            <br />
+                            <input type="date" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.date} name="deadline" onChange={changeHandler} />
+                            {/* transport.deadline.split("T")[0] */}
+                            {/* .split("T")[0].substring(0, 10) */}
+                        </div>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                        {/* <input type='submit' /> */}
+
+                    </form>
+
+                </div>
+            </div>
         </div>
+
+
     )
 }
 

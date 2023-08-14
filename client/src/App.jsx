@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        <h1>Rescue Transport</h1>
+        <h1 className='text-left mx-10 my-5 text-2xl text-blue-700 '>Rescue Transport</h1>
         <Routes>
           <Route path="/" element={<RegLog />} />
           {/* <Route path="/login" element={<Login />} /> */}

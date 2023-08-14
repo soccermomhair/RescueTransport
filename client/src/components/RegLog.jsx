@@ -4,9 +4,10 @@ import Login from './Login'
 
 const RegLog = () => {
     return (
-        <div>
+        <div className='mx-10 flex flex-row justify-evenly bg-yellow-300 p-10'>
             <Register />
             <Login />
+
         </div>
     )
 }
