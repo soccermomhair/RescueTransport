@@ -25,19 +25,21 @@ const Login = () => {
     return (
         <div>
             <form onSubmit={submitHandler}>
-                <h3>Login</h3>
-                <div>
-                    <label>Email</label>
-                    <br />
-                    <input type="email" value={userInfo.email} name="email" onChange={changeHandler} />
+                <h3 className='text-lg underline font-semibold p-4'>Login</h3>
+                <div className='my-5'>
+                    <div>
+                        <label>Email</label>
+                        <br />
+                        <input type="email" value={userInfo.email} name="email" onChange={changeHandler} />
+                    </div>
+                    <div className=''>
+                        <label>Password</label>
+                        <br />
+                        <input type="password" value={userInfo.password} name="password" onChange={changeHandler} />
+                    </div>
                 </div>
                 <div>
-                    <label>Password</label>
-                    <br />
-                    <input type="password" value={userInfo.password} name="password" onChange={changeHandler} />
-                </div>
-                <div>
-                    <button type="submit">Login</button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Login</button>
                 </div>
             </form>
         </div>

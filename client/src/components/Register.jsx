@@ -28,34 +28,36 @@ const Register = () => {
     return (
         <div>
             <form onSubmit={submitHandler}>
-                <h3>Register</h3>
-                <div>
-                    <label>First name</label>
-                    <br />
-                    <input type="text" value={userInfo.firstName} name="firstName" onChange={changeHandler} />
+                <h3 className='text-lg underline font-semibold p-4'>Register</h3>
+                <div className='my-5'>
+                    <div>
+                        <label>First name</label>
+                        <br />
+                        <input type="text" value={userInfo.firstName} name="firstName" onChange={changeHandler} />
+                    </div>
+                    <div>
+                        <label>Last name</label>
+                        <br />
+                        <input type="text" value={userInfo.lastName} name="lastName" onChange={changeHandler} />
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <br />
+                        <input type="email" value={userInfo.email} name="email" onChange={changeHandler} />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <br />
+                        <input type="password" value={userInfo.password} name="password" onChange={changeHandler} />
+                    </div>
+                    <div>
+                        <label>Confirm password</label>
+                        <br />
+                        <input type="password" value={userInfo.confirmPassword} name="confirmPassword" onChange={changeHandler} />
+                    </div>
                 </div>
                 <div>
-                    <label>Last name</label>
-                    <br />
-                    <input type="text" value={userInfo.lastName} name="lastName" onChange={changeHandler} />
-                </div>
-                <div>
-                    <label>Email</label>
-                    <br />
-                    <input type="email" value={userInfo.email} name="email" onChange={changeHandler} />
-                </div>
-                <div>
-                    <label>Password</label>
-                    <br />
-                    <input type="password" value={userInfo.password} name="password" onChange={changeHandler} />
-                </div>
-                <div>
-                    <label>Confirm password</label>
-                    <br />
-                    <input type="password" value={userInfo.confirmPassword} name="confirmPassword" onChange={changeHandler} />
-                </div>
-                <div>
-                    <button type="submit">Register</button>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Register</button>
                 </div>
             </form >
         </div >

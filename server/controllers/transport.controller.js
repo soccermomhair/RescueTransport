@@ -19,7 +19,7 @@ module.exports = {
         // find is a mongoose command
         Transport.find()
             .then(alltransports => {
-                console.log(alltransports);
+                // console.log(alltransports);
                 res.json(alltransports);
             })
             .catch((err) => {
