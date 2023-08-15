@@ -19,7 +19,7 @@ module.exports = {
                 // console.log("userToken", userToken);
                 res.cookie("userToken", userToken, {
                     httpOnly: true
-                }).json({ message: "success", user: newUser });
+                }).json(newUser);
             }
         } catch (err) {
             console.log(err);
