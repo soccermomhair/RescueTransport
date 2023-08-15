@@ -1,3 +1,7 @@
+const User = require('../models/user.model')
+const jwt = require("jsonwebtoken")
+const secret = process.env.SECRET_KEY;
+const bcrypt = require("bcrypt")
 const Transport = require('../models/transport.model')
 
 module.exports = {

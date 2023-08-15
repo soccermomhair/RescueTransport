@@ -15,9 +15,9 @@ module.exports = {
                 //     .then(user => res.json({ msg: "success!", user: user }))
                 //     .catch(err => res.json(err));
                 // ***IS THERE AN UNDERSCORE OR NOT?***
-                const userToken = jwt.sign({ _id: newUser.id, email: newUser.email }, secret, { expiresIn: "1d" });
+                const userToken = jwt.sign({ _id: newUser._id, email: newUser.email }, secret, { expiresIn: "1d" });
                 // console.log("userToken", userToken);
-                res.cookie("usertoken", userToken, {
+                res.cookie("userToken", userToken, {
                     httpOnly: true
                 }).json({ message: "success", user: newUser });
             }
@@ -32,15 +32,14 @@ module.exports = {
             if (user) {
                 const passwordMatch = await bcrypt.compare(req.body.password, user.password);
                 if (passwordMatch) {
-                    const userToken = jwt.sign({ _id: user.id, email: user.email }, secret, { expiresIn: "1d" });
+                    const userToken = jwt.sign({ _id: user._id, email: user.email }, secret, { expiresIn: "1d" });
                     console.log(userToken, "user token")
 
 
-                    return res.cookie("usertoken", userToken, {
-                        httpOnly: true,
-                        secure: process.env.NODE_ENV === "production"
-                    }).json({ message: "success", user: user });
-
+                    res.status(201).cookie("userToken", userToken).json({ message: "success", user: userToken });
+                    // }).json({ message: "success", user: user });
+                    // httpOnly: true,
+                    // secure: process.env.NODE_ENV === "production"
                     // res.status(201).cookie("usertoken", userToken,).json({ message: "success", user: user })
                 }
                 else {
@@ -56,7 +55,7 @@ module.exports = {
         }
     },
     logout: (req, res) => {
-        res.clearCookie("usertoken").json({ message: "success" });
+        res.clearCookie("userToken").json({ message: "success" });
 
     }
 }

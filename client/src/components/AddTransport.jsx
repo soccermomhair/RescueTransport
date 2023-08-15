@@ -63,7 +63,7 @@ const AddTransport = (props) => {
                     <p className='font-bold'>ID: <span className='font-normal'>{transport.refId}</span></p>
                     <p className='font-bold'>Description: <span className='font-normal'>{transport.description}</span></p>
                     <p className='font-bold'>Current location: <span className='font-normal'>{transport.currentLocation}</span></p>
-                    <p className='font-bold'>Deadline: <span className='font-normal'>{transport.deadline}</span></p>
+                    <p className='font-bold'>Deadline: <span className='font-normal'>{transport.deadline.split("T")[0].substring(0, 10)}</span></p>
                     <p className='font-bold'>Rescue: <span className='font-normal'>{transport.rescue}</span></p>
                     <p className='font-bold'>Drop-off location: <span className='font-normal'>{transport.dropoffLocation}</span></p>
                     {/* <p>Rescue representative {login username}</p> */}
@@ -79,7 +79,7 @@ const AddTransport = (props) => {
                         <div className='mb-7'>
                             <label className="block text-gray-700 text-sm font-bold ">Pick-up date</label>
                             <br />
-                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.deadline} name="pickupDate" onChange={changeHandler} />
+                            <input type="text" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.deadline.split("T")[0].substring(0, 10)} name="pickupDate" onChange={changeHandler} />
 
                         </div>
                         <div className='mb-7'>

@@ -47,7 +47,7 @@ const Dashboard = (props) => {
     return (
         <div >
             <div className='text-right'>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={logout}>Log Out</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => logout()}>Log Out</button>
             </div>
             <div className='text-left mx-10'>
                 <p className="text-green-700 text-2xl my-5 ">Pets requiring rescue or transport</p>
@@ -89,7 +89,7 @@ const Dashboard = (props) => {
                                                     <td class="whitespace-normal px-4 py-4 font-medium">{transport.description}</td>
                                                     <td class="whitespace-nowrap px-4 py-4 font-medium">{transport.currentLocation}</td>
                                                     <td class="whitespace-nowrap px-4 py-4 font-medium">{transport.dropoffLocation}</td>
-                                                    <td class="whitespace-nowrap px-4 py-4 font-medium">{transport.deadline}</td>
+                                                    <td class="whitespace-nowrap px-4 py-4 font-medium">{transport.deadline.split("T")[0].substring(0, 10)}</td>
 
                                                     <td class="whitespace-nowrap px-4 py-4 font-medium">
                                                         {transport.rescue != "NONE" ?
