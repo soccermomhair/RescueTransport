@@ -146,7 +146,7 @@ const EditPetTwo = (props) => {
                         <div className='mb-7'>
                             <label className="block text-gray-700 text-sm font-bold ">Deadline</label>
                             <br />
-                            <input type="date" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.date} name="deadline" onChange={changeHandler} />
+                            <input type="date" className="shadow-sm appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={transport.deadline.split("T")[0].substring(0, 10)} name="deadline" onChange={changeHandler} />
                             {/* transport.deadline.split("T")[0] */}
                             {/* .split("T")[0].substring(0, 10) */}
                         </div>
