@@ -61,7 +61,7 @@ const AddRescue = (props) => {
                     <p className='font-bold'>ID: <span className='font-normal'>{transport.refId}</span></p>
                     <p className='font-bold'>Description: <span className='font-normal'>{transport.description}</span></p>
                     <p className='font-bold'>Current location: <span className='font-normal'>{transport.currentLocation}</span></p>
-                    <p className='font-bold'>Deadline: <span className='font-normal'>{transport.deadline.split("T")[0].substring(0, 10)}</span></p>
+                    <p className='font-bold'>Deadline: <span className='font-normal'>{transport.deadline}</span></p>
                     {/* <p>Rescue representative {login username}</p> */}
                     <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' onSubmit={onSubmitHandler}>
                         <div>
